@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <!--
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+-->
+        <script src="react.js"></script>
+        <script src="reactdom.js"></script>
+        <style>
+            .main {
+                background-color: brown;
+                color: white;
+                border: 5px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <h1>
+                Hello world
+            </h1>
+            <ul>
+                <li>php</li>
+            </ul>
+
+        </div>
+
+        <script>
+            const rootElement = document.getElementById('root');
+
+            const root = ReactDOM.createRoot(rootElement);
+
+            const h1 = React.createElement('h1', {
+                key: 'h1',
+                style: {
+                    color: 'green',
+                    width: '200px'
+                },
+                className: 'big',
+                onClick: ele => { console.log(ele.target) }
+            },
+                'Hello World'
+
+            );
+            const ul = React.createElement('ul', {
+                className: 'list', key: 'ul'
+            },
+                [
+                    React.createElement('li', { key: 'php' }, 'PHP'),
+                    React.createElement('li', { key: 'javascript' }, 'JAVASCRIPT')
+                ]
+            );
+            const div = React.createElement('div', {
+                className: 'main'
+            },
+                [h1, ul]
+            );
+            root.render(div);
+        </script>
+    </body>
+
+</html>
